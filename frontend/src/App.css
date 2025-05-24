@@ -1,0 +1,34 @@
+/* Make video.js responsive */
+.video-js {
+  width: 100%;
+  height: 100%;
+  max-width: 100%;
+}
+
+/* Ensure video.js controls are visible */
+.vjs-control-bar {
+  display: flex !important;
+}
+
+/* Custom styling for video.js */
+.video-js .vjs-big-play-button {
+  background-color: rgba(43, 51, 63, 0.7);
+  border-color: white;
+  border-radius: 50%;
+  height: 3em;
+  width: 3em;
+  line-height: 3em;
+  margin-left: -1.5em;
+  margin-top: -1.5em;
+}
+
+.video-js:hover .vjs-big-play-button {
+  background-color: rgba(43, 51, 63, 0.9);
+}
+
+/* Responsive adjustments for mobile */
+@media (max-width: 768px) {
+  .action-player {
+    display: none;
+  }
+}

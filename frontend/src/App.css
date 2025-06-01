@@ -1,3 +1,6 @@
+@import "tailwindcss";
+@plugin "daisyui";
+
 /* Make video.js responsive */
 .video-js {
   width: 100%;

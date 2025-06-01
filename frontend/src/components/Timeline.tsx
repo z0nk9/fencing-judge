@@ -67,7 +67,7 @@ const Timeline: React.FC<TimelineProps> = ({
     <div className="w-full my-5">
       <div
         ref={timelineRef}
-        className="relative h-[10px] bg-base-300 rounded-full cursor-pointer overflow-visible"
+        className="relative h-[10px] bg-gray-200 rounded-full cursor-pointer overflow-visible"
         onClick={handleTimelineClick}
       >
         {/* Timeline progress bar */}
@@ -96,7 +96,7 @@ const Timeline: React.FC<TimelineProps> = ({
       </div>
       
       {/* Time display */}
-      <div className="flex justify-between mt-1 text-xs text-neutral-500">
+      <div className="flex justify-between mt-1 text-xs text-gray-500">
         <span>{formatTime(currentTime)}</span>
         <span>{formatTime(duration)}</span>
       </div>
@@ -104,7 +104,7 @@ const Timeline: React.FC<TimelineProps> = ({
       {/* Tooltip */}
       {hoveredAction && (
         <div
-          className="fixed bg-neutral-800/90 text-white p-2 rounded text-xs z-50 pointer-events-none max-w-[250px] transform -translate-x-1/2 -translate-y-full shadow-md"
+          className="fixed bg-gray-800/90 text-white p-2 rounded text-xs z-50 pointer-events-none max-w-[250px] transform -translate-x-1/2 -translate-y-full shadow-md"
           style={{
             left: tooltipPosition.left,
             top: tooltipPosition.top
@@ -112,13 +112,13 @@ const Timeline: React.FC<TimelineProps> = ({
         >
           <div className="flex justify-between mb-1">
             <span className="font-bold capitalize">{hoveredAction.action_type}</span>
-            <span className="text-neutral-400">{formatTime(hoveredAction.timestamp)}</span>
+            <span className="text-gray-400">{formatTime(hoveredAction.timestamp)}</span>
           </div>
           {hoveredAction.description && (
             <div className="mt-1 text-[11px]">{hoveredAction.description}</div>
           )}
           {hoveredAction.player && (
-            <div className="mt-1 text-[11px] text-neutral-400">Player: {hoveredAction.player}</div>
+            <div className="mt-1 text-[11px] text-gray-400">Player: {hoveredAction.player}</div>
           )}
         </div>
       )}

@@ -111,12 +111,12 @@ function App() {
 
   return (
     <div className="flex flex-col min-h-screen w-full max-w-7xl mx-auto p-4">
-      <header className="py-4 border-b border-base-300 mb-8">
+      <header className="py-4 border-b border-gray-200 mb-8">
         <h1 className="text-center text-2xl text-primary">Fencing Video Judge</h1>
       </header>
 
       <main className="flex-1 grid grid-cols-1 lg:grid-cols-4 gap-8">
-        <div className="lg:col-span-4 p-4 bg-base-200 rounded-lg mb-4">
+        <div className="lg:col-span-4 p-4 bg-gray-100 rounded-lg mb-4">
           <h2 className="text-xl font-semibold">Upload Video</h2>
           <div className="flex gap-4 mt-4">
             <input
@@ -124,12 +124,12 @@ function App() {
               accept="video/*"
               onChange={handleFileChange}
               disabled={isUploading}
-              className="file-input file-input-bordered flex-1"
+              className="block w-full flex-1 text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-white focus:outline-none p-2.5"
             />
             <button
               onClick={handleUpload}
               disabled={!selectedFile || isUploading}
-              className="btn btn-primary"
+              className="px-4 py-2 bg-primary text-white rounded-lg hover:bg-blue-600 focus:ring-2 focus:ring-blue-300 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
             >
               {isUploading ? 'Uploading...' : 'Upload'}
             </button>
@@ -157,13 +157,13 @@ function App() {
                 )}
               </div>
 
-              <div className="bg-base-200 rounded-lg p-4">
+              <div className="bg-gray-100 rounded-lg p-4">
                 <div className="flex justify-between items-center mb-4">
                   <h2 className="text-xl font-semibold">Video Analysis</h2>
                   <button
                     onClick={handleAnalyze}
                     disabled={isAnalyzing}
-                    className="btn btn-success"
+                    className="px-4 py-2 bg-success text-white rounded-lg hover:bg-emerald-600 focus:ring-2 focus:ring-emerald-300 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
                   >
                     {isAnalyzing ? 'Analyzing...' : 'Analyze Video'}
                   </button>
@@ -174,13 +174,13 @@ function App() {
                     <h3 className="text-lg font-medium mt-6 mb-2 text-neutral-800">Summary</h3>
                     <p>{analysis.summary || 'No summary available'}</p>
                     
-                    <h3 className="text-lg font-medium mt-6 mb-2 text-neutral-800">Detected Actions</h3>
+                    <h3 className="text-lg font-medium mt-6 mb-2 text-gray-800">Detected Actions</h3>
                     {analysis.actions.length > 0 ? (
-                      <ul className="divide-y divide-base-300">
+                      <ul className="divide-y divide-gray-200">
                         {analysis.actions.map((action, index) => (
                           <li
                             key={index}
-                            className="grid grid-cols-4 gap-2 py-3 px-3 hover:bg-base-300 cursor-pointer transition-colors"
+                            className="grid grid-cols-4 gap-2 py-3 px-3 hover:bg-gray-200 cursor-pointer transition-colors"
                             onClick={() => handleSeek(action.timestamp)}
                           >
                             <span className="font-mono text-neutral-500">{formatTime(action.timestamp)}</span>
@@ -198,21 +198,21 @@ function App() {
               </div>
             </>
           ) : (
-            <div className="flex justify-center items-center h-[300px] bg-base-200 rounded-lg text-neutral-500">
+            <div className="flex justify-center items-center h-[300px] bg-gray-100 rounded-lg text-gray-500">
               <p>Upload a video or select one from the list to begin</p>
             </div>
           )}
         </div>
 
-        <div className="lg:col-span-1 bg-base-200 rounded-lg p-4">
+        <div className="lg:col-span-1 bg-gray-100 rounded-lg p-4">
           <h2 className="text-xl font-semibold">Uploaded Videos</h2>
           {videoList.length > 0 ? (
             <ul className="mt-2">
               {videoList.map((filename, index) => (
                 <li
                   key={index}
-                  className={`py-3 px-3 border-b border-base-300 cursor-pointer transition-colors truncate
-                    ${currentVideo === filename ? 'bg-primary/10 font-bold' : 'hover:bg-base-300'}`}
+                  className={`py-3 px-3 border-b border-gray-200 cursor-pointer transition-colors truncate
+                    ${currentVideo === filename ? 'bg-blue-100 font-bold' : 'hover:bg-gray-200'}`}
                   onClick={() => handleVideoSelect(filename)}
                 >
                   {filename}
@@ -226,7 +226,7 @@ function App() {
       </main>
 
       {error && (
-        <div className="mt-4 p-3 bg-error/10 text-error rounded-md text-center">
+        <div className="mt-4 p-3 bg-red-100 text-error rounded-md text-center">
           {error}
         </div>
       )}
